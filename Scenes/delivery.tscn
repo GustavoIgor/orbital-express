@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://dcol07v036n16"]
+[gd_scene load_steps=3 format=3 uid="uid://dcol07v036n16"]
+
+[ext_resource type="Texture2D" uid="uid://fpa5r45wpbug" path="res://Assets/Background.png" id="1_df8og"]
+[ext_resource type="PackedScene" uid="uid://cbxctj48srse3" path="res://Scenes/space_ship.tscn" id="2_tekcv"]
 
 [node name="Delivery" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(458, 311.5)
+scale = Vector2(0.654167, 0.609259)
+texture = ExtResource("1_df8og")
+
+[node name="SpaceShip" parent="." instance=ExtResource("2_tekcv")]
+position = Vector2(462, 311)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(462, 311)
+zoom = Vector2(2, 2)
