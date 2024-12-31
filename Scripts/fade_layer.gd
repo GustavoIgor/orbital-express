@@ -1,28 +1,21 @@
 extends CanvasLayer
 
-@onready var animation_player = $AnimationPlayer
 @onready var colorRect = $ColorRect
-# Callback que será chamado após o fade
-var on_fade_complete: Callable = Callable()
+@onready var animation = $AnimationPlayer
+
+signal transition_finished
 
 func _ready() -> void:
 	colorRect.visible = false
-	animation_player.animation_finished.connect(_on_AnimationPlayer_animation_finished)
+	animation.animation_finished.connect(_on_animation_finished)
 
-# Inicia o fade in (desaparece para transparente)
-func fade_in(callback: Callable = Callable()) -> void:
+func _on_animation_finished(anim_name):
+	if anim_name == "fade_in":
+		transition_finished.emit()
+		animation.play("fade_out")
+	elif anim_name == "fade_out":
+		colorRect.visible = false
+
+func transition():
 	colorRect.visible = true
-	on_fade_complete = callback
-	animation_player.play("fade_in")
-
-# Inicia o fade out (aparece para opaco)
-func fade_out(callback: Callable = Callable()) -> void:
-	colorRect.visible = true
-	on_fade_complete = callback
-	animation_player.play("fade_out")
-
-# Chamado no final da animação (defina isso como sinal no AnimationPlayer)
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	if anim_name in ["fade_in", "fade_out"]:
-		if on_fade_complete and on_fade_complete.is_valid():
-			on_fade_complete.call_deferred()
+	animation.play("fade_in")

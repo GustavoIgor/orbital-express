@@ -40,7 +40,6 @@ func calculate_travel_time(from_index: int, to_index: int, speed: float) -> floa
 	return -1.0  # Retorna -1 se a distância não for válida
 
 func change_scene_with_fade(scene_path: String) -> void:
-	FadeLayer.fade_out(func() -> void:
-		get_tree().change_scene_to_file(scene_path)
-		FadeLayer.fade_in()
-	)
+	FadeLayer.transition()
+	await FadeLayer.transition_finished
+	get_tree().change_scene_to_file(scene_path)

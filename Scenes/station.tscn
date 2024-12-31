@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqu38k1r2yav2"]
+[gd_scene load_steps=4 format=3 uid="uid://cqu38k1r2yav2"]
 
 [ext_resource type="Texture2D" uid="uid://e30yt8n3p326" path="res://Assets/Alpha.png" id="1_ji0r5"]
 [ext_resource type="Script" path="res://Scripts/station.gd" id="1_tfqm1"]
+[ext_resource type="PackedScene" uid="uid://dg2ie0juhtj7p" path="res://Scenes/stats.tscn" id="3_ymfby"]
 
 [node name="Station" type="CanvasLayer"]
 script = ExtResource("1_tfqm1")
@@ -25,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ji0r5")
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Bar" type="Panel" parent="Control"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 12
@@ -35,7 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Bar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,17 +50,23 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Stats" type="Button" parent="Control/Panel/HBoxContainer"]
+[node name="Stats" type="Button" parent="Control/Bar/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Stats"
 
-[node name="CurrentStation" type="Button" parent="Control/Panel/HBoxContainer"]
+[node name="CurrentStation" type="Button" parent="Control/Bar/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Current station"
 
-[node name="NextStation" type="Button" parent="Control/Panel/HBoxContainer"]
+[node name="NextStation" type="Button" parent="Control/Bar/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Next station"
+
+[node name="Stats" parent="Control" instance=ExtResource("3_ymfby")]
+layout_mode = 1
+offset_top = 16.0
+offset_bottom = 416.0
