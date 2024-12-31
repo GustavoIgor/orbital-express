@@ -1,4 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+
+func _on_button_pressed() -> void:
+	Global.change_scene_with_fade("res://Scenes/station.tscn")

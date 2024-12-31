@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+FadeLayer="*res://Scenes/fade_layer.tscn"
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/size/viewport_width=960

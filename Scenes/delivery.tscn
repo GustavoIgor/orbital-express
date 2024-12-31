@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcol07v036n16"]
+[gd_scene load_steps=4 format=3 uid="uid://dcol07v036n16"]
 
 [ext_resource type="Texture2D" uid="uid://fpa5r45wpbug" path="res://Assets/Background.png" id="1_df8og"]
 [ext_resource type="PackedScene" uid="uid://cbxctj48srse3" path="res://Scenes/space_ship.tscn" id="2_tekcv"]
+[ext_resource type="PackedScene" uid="uid://ck0j7ry3joktn" path="res://Scenes/ui.tscn" id="3_nlgs2"]
 
 [node name="Delivery" type="Node2D"]
 
@@ -16,3 +17,5 @@ position = Vector2(462, 311)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(462, 311)
 zoom = Vector2(2, 2)
+
+[node name="UI" parent="." instance=ExtResource("3_nlgs2")]
