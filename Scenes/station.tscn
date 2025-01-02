@@ -68,8 +68,8 @@ text = "Next station"
 
 [node name="Stats" parent="Control" instance=ExtResource("3_ymfby")]
 layout_mode = 1
-offset_top = 16.0
-offset_bottom = 416.0
+offset_top = 11.0
+offset_bottom = 411.0
 
 [connection signal="pressed" from="Control/Bar/HBoxContainer/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="Control/Bar/HBoxContainer/CurrentStation" to="." method="_on_current_station_pressed"]

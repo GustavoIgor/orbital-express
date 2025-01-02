@@ -1,10 +1,12 @@
 extends Node
 var fuel : int = 100
+var life : int = 100
 var money : float = 1000.00
 var time : int = 0
 var days : int = 0
 var cur_station : int = 0
-var stations = [
+var goods : Array = ["Data", "Energy", "Food", "Fuel", "Medicine", "Metal", "Water" ]
+var stations : Array = [
 	{"name": "Alpha Station", "resources": ["Fuel", "Food"], "missions": ["Deliver Supplies"]},
 	{"name": "Beta Outpost", "resources": ["Metal"], "missions": ["Escort Ship"]},
 	{"name": "Gamma Base", "resources": ["Data"], "missions": ["Repair Systems"]},

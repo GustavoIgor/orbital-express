@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg2ie0juhtj7p"]
+[gd_scene load_steps=6 format=3 uid="uid://dg2ie0juhtj7p"]
 
 [ext_resource type="Script" path="res://Scripts/stats.gd" id="1_3yys5"]
 [ext_resource type="Texture2D" uid="uid://0s3vn55i83cb" path="res://Assets/gas.png" id="1_stn2a"]
+[ext_resource type="Texture2D" uid="uid://mxooyjyd75w8" path="res://Assets/ShipLife.png" id="3_fyy41"]
 [ext_resource type="Texture2D" uid="uid://dqhdmi3g8rri" path="res://Assets/coin.png" id="3_x8v56"]
 [ext_resource type="Texture2D" uid="uid://bm2iw7gayxxwp" path="res://Assets/time.png" id="4_b5oyn"]
 
@@ -21,6 +22,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -62,6 +65,40 @@ text = "FUEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Life" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Life"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_fyy41")
+stretch_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/Life"]
+custom_minimum_size = Vector2(200, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 20.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Life/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "LIFE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Money" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
@@ -96,5 +133,6 @@ layout_mode = 2
 text = "Fuel: It's used to travel between galaxies, don't ask yourself how it makes the ship runs in lightspeed, maybe even the scientists are amazed"
 
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Fuel" to="." method="_on_fuel_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Life" to="." method="_on_life_mouse_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Money" to="." method="_on_money_mouse_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Days" to="." method="_on_days_mouse_entered"]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cuindur1pl737"]
+
+[node name="NextStation" type="Panel"]
+custom_minimum_size = Vector2(800, 400)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
