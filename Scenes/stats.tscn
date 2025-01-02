@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg2ie0juhtj7p"]
+[gd_scene load_steps=5 format=3 uid="uid://dg2ie0juhtj7p"]
 
 [ext_resource type="Script" path="res://Scripts/stats.gd" id="1_3yys5"]
 [ext_resource type="Texture2D" uid="uid://0s3vn55i83cb" path="res://Assets/gas.png" id="1_stn2a"]
+[ext_resource type="Texture2D" uid="uid://dqhdmi3g8rri" path="res://Assets/coin.png" id="3_x8v56"]
+[ext_resource type="Texture2D" uid="uid://bm2iw7gayxxwp" path="res://Assets/time.png" id="4_b5oyn"]
 
 [node name="Stats" type="Panel"]
 custom_minimum_size = Vector2(800, 400)
@@ -60,7 +62,39 @@ text = "FUEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Money" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Money"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_x8v56")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Money"]
+layout_mode = 2
+text = "Money:"
+
+[node name="Days" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Days"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_b5oyn")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Days"]
+layout_mode = 2
+text = "Days:"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "Fuel: It's used to travel between galaxies, don't ask yourself how it makes the ship runs in lightspeed, maybe even the scientists are amazed"
+
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Fuel" to="." method="_on_fuel_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Money" to="." method="_on_money_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Days" to="." method="_on_days_mouse_entered"]

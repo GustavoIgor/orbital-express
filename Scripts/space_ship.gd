@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 		shoot()
 
 func shoot() -> void:
-	var bullet_instance = preload("res://Scenes/Bullet.tscn").instantiate()
+	var bullet_instance = preload("res://Scenes/bullet.tscn").instantiate()
 	bullet_instance.global_position = global_position
 	bullet_instance.rotation = rotation
 	get_parent().add_child(bullet_instance)
