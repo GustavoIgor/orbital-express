@@ -5,6 +5,7 @@ var money : float = 1000.00
 var time : int = 0
 var days : int = 0
 var cur_station : int = 0
+var target_station : int
 var goods : Array = ["Data", "Energy", "Food", "Fuel", "Medicine", "Metal", "Water" ]
 var stations : Array = [
 	{"name": "Alpha Station", "resources": ["Fuel", "Food"], "missions": ["Deliver Supplies"]},

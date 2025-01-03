@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cuindur1pl737"]
+[gd_scene load_steps=2 format=3 uid="uid://cuindur1pl737"]
+
+[ext_resource type="Script" path="res://Scripts/next_station.gd" id="1_rt2om"]
 
 [node name="NextStation" type="Panel"]
 custom_minimum_size = Vector2(800, 400)
@@ -9,3 +11,63 @@ offset_left = -400.0
 offset_right = 400.0
 offset_bottom = 400.0
 grow_horizontal = 2
+script = ExtResource("1_rt2om")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AlphaStation" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(175, 50)
+layout_mode = 2
+text = "ALPHA STATION"
+
+[node name="BetaOutpost" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(175, 50)
+layout_mode = 2
+text = "BETA OUTPOST"
+
+[node name="GammaBase" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(175, 50)
+layout_mode = 2
+text = "GAMMA BASE"
+
+[node name="DeltaHub" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(175, 50)
+layout_mode = 2
+text = "DELTA HUB"
+
+[node name="EpsilonColony" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(175, 50)
+layout_mode = 2
+text = "EPSILON COLONY"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "fsfsfs"
+
+[node name="Accept" type="Button" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "ACCEPT"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/AlphaStation" to="." method="_on_alpha_station_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/BetaOutpost" to="." method="_on_beta_outpost_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/GammaBase" to="." method="_on_gamma_base_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/DeltaHub" to="." method="_on_delta_hub_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/EpsilonColony" to="." method="_on_epsilon_colony_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Accept" to="." method="_on_accept_pressed"]

@@ -30,4 +30,4 @@ func _on_days_mouse_entered() -> void:
 	info.text = "Days: the how many times a celestial body rotates completely around its own axis. Even so many planets exists in the cosmos, it's still based on Earth (Now called 'Genisis') cycles."
 
 func _on_life_mouse_entered() -> void:
-	info.text = "Life: It's you ship integrity, the lower the more damaged the ship is. Be careful with your precious ship!"
+	info.text = "Life: It's you ship integrity, the lower the more damaged the ship is. Be careful with your precious ship! When it gets to 0 it's Game Over!"
