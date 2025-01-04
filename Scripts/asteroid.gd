@@ -1,4 +1,4 @@
-extends Area2D
+class_name Asteroid extends Area2D
 
 enum  AsteroidSize{LARGE, MEDIUM, SMALL}
 
@@ -8,6 +8,19 @@ enum  AsteroidSize{LARGE, MEDIUM, SMALL}
 var movement_vector := Vector2(0, -1)
 var speed := 100
 
+var money_gained : int:
+	get:
+		match size:
+			AsteroidSize.LARGE:
+				return 100
+			AsteroidSize.LARGE:
+				return 50
+			AsteroidSize.LARGE:
+				return 250
+			_:
+				return 0
+
+signal exploded
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,3 +53,14 @@ func _process(delta: float) -> void:
 		global_position.x = screen_size.x
 	elif global_position.x > screen_size.x:
 		global_position.x = 0
+
+func explode():
+	emit_signal("exploded", global_position, size, money_gained)
+	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "SpaceShip":
+		emit_signal("exploded", global_position, size, money_gained)
+		Global.life -= 10
+		queue_free()

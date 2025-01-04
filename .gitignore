@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+orbital_express_html
+orbital_express_win
+orbital_express_html.zip
+export_presets.cfg

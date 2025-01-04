@@ -24,7 +24,7 @@ func _on_fuel_mouse_entered() -> void:
 	info.text = "Fuel: It's used to travel between galaxies, don't ask yourself how it makes the ship runs in lightspeed, maybe even the scientists are amazed."
 
 func _on_money_mouse_entered() -> void:
-	info.text = "Money: A currency. Most Universe uses this coin, it's gets crazy when election comes out... somethings never change even after thousands of years, right?"
+	info.text = "Money: A currency. Most Universe uses this coin, it's gets crazy when election comes out... somethings never change even after thousands of years, right? Get 10000 to WIN the game."
 
 func _on_days_mouse_entered() -> void:
 	info.text = "Days: the how many times a celestial body rotates completely around its own axis. Even so many planets exists in the cosmos, it's still based on Earth (Now called 'Genisis') cycles."

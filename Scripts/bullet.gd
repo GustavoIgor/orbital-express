@@ -17,12 +17,13 @@ func _process(delta: float) -> void:
 	if time_left <= 0:
 		queue_free()
 
-func _on_area_entered(body: Node) -> void:
-	if body.name != "Player":
+func _on_area_2d_body_entered(body) -> void:
+	#queue_free()  # Remove a bala
+	pass
+
+func _on_area_2d_area_entered(area) -> void:
+	if area is Asteroid:
+		print("Acertou")
+		var asteroid = area
+		asteroid.explode()  # Chama um método do objeto colidido
 		queue_free()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemies"):  # Verifica se é um inimigo
-		body.take_damage()  # Chama um método do objeto colidido
-		queue_free()  # Remove a bala

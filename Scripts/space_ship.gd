@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	# Obtém a posição global do mouse
 	animation.play("Lighted")
 	var mouse_position = get_global_mouse_position()
-	print(mouse_position)
 	# Faz a nave olhar para a posição do mouse
 	look_at(mouse_position)
 

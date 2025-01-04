@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqu38k1r2yav2"]
+[gd_scene load_steps=7 format=3 uid="uid://cqu38k1r2yav2"]
 
 [ext_resource type="Texture2D" uid="uid://e30yt8n3p326" path="res://Assets/Alpha.png" id="1_ji0r5"]
 [ext_resource type="Script" path="res://Scripts/station.gd" id="1_tfqm1"]
 [ext_resource type="PackedScene" uid="uid://dg2ie0juhtj7p" path="res://Scenes/stats.tscn" id="3_ymfby"]
 [ext_resource type="PackedScene" uid="uid://bejx0rp1kryob" path="res://Scenes/current_station.tscn" id="4_glr1g"]
 [ext_resource type="PackedScene" uid="uid://cuindur1pl737" path="res://Scenes/next_station.tscn" id="5_5aohp"]
+[ext_resource type="PackedScene" uid="uid://b131ikq2mr1f5" path="res://Scenes/shop.tscn" id="6_2s0cr"]
 
 [node name="Station" type="CanvasLayer"]
 script = ExtResource("1_tfqm1")
@@ -68,6 +69,12 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Next station"
 
+[node name="Shop" type="Button" parent="Control/Bar/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Shop
+"
+
 [node name="Stats" parent="Control" instance=ExtResource("3_ymfby")]
 visible = false
 layout_mode = 1
@@ -84,6 +91,14 @@ layout_mode = 1
 offset_top = 10.0
 offset_bottom = 410.0
 
+[node name="Shop" parent="Control" instance=ExtResource("6_2s0cr")]
+visible = false
+layout_mode = 1
+offset_left = -400.0
+offset_right = 400.0
+offset_bottom = 410.0
+
 [connection signal="pressed" from="Control/Bar/HBoxContainer/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="Control/Bar/HBoxContainer/CurrentStation" to="." method="_on_current_station_pressed"]
 [connection signal="pressed" from="Control/Bar/HBoxContainer/NextStation" to="." method="_on_next_station_pressed"]
+[connection signal="pressed" from="Control/Bar/HBoxContainer/Shop" to="." method="_on_shop_pressed"]

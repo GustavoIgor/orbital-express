@@ -58,7 +58,7 @@ size_flags_vertical = 4
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-text = "fsfsfs"
+text = "Click on any station"
 
 [node name="Accept" type="Button" parent="HBoxContainer/VBoxContainer2"]
 visible = false

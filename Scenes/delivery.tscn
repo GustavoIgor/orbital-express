@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcol07v036n16"]
+[gd_scene load_steps=8 format=3 uid="uid://dcol07v036n16"]
 
+[ext_resource type="Script" path="res://Scripts/delivery.gd" id="1_6vcik"]
 [ext_resource type="Texture2D" uid="uid://fpa5r45wpbug" path="res://Assets/Background.png" id="1_df8og"]
 [ext_resource type="PackedScene" uid="uid://cbxctj48srse3" path="res://Scenes/space_ship.tscn" id="2_tekcv"]
 [ext_resource type="PackedScene" uid="uid://ck0j7ry3joktn" path="res://Scenes/ui.tscn" id="3_nlgs2"]
 [ext_resource type="PackedScene" uid="uid://sshhu6yh0dpw" path="res://Scenes/asteroid.tscn" id="4_4d74n"]
+[ext_resource type="Script" path="res://Scripts/asteroid_spawner.gd" id="5_r0xcm"]
+[ext_resource type="PackedScene" uid="uid://cwnydy2po7sbb" path="res://Scenes/travel_is_over.tscn" id="7_n14x2"]
 
 [node name="Delivery" type="Node2D"]
+script = ExtResource("1_6vcik")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
@@ -19,6 +23,18 @@ position = Vector2(520, 238)
 [node name="Asteroid" parent="." instance=ExtResource("4_4d74n")]
 position = Vector2(340, 204)
 
+[node name="AsteroidSpawner" type="Node2D" parent="."]
+position = Vector2(441, 155)
+script = ExtResource("5_r0xcm")
+
+[node name="TravelTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 270)
 zoom = Vector2(2, 2)
+
+[node name="TravelIsOver" parent="." instance=ExtResource("7_n14x2")]
+visible = false
+
+[connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
